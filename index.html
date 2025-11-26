@@ -9,46 +9,39 @@
       padding: 0;
       font-family: Futura, sans-serif;
       height: 100vh;
-      background: url("fond.jpg") no-repeat center center fixed;
-      background-size: cover;
+      background: #000; /* tout noir */
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      backdrop-filter: brightness(0.85);
-      color: red;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+      color: white;
+      text-shadow: none;
     }
 
     .container {
-      background: rgba(0,0,0,0.45);
       padding: 20px 30px;
       border-radius: 10px;
       max-width: 500px;
-      backdrop-filter: blur(2px);
+      text-align: center;
     }
 
     h1 {
-      text-align: center;
-      margin-bottom: 20px;
+      color: #0ff; /* bleu électrique */
+      font-size: 2em;
+      margin-bottom: 30px;
     }
 
     a {
       display: block;
       padding: 12px;
       margin: 10px 0;
-      background: rgba(255,255,255,0.85);
-      color: #000;
+      background: #000; /* fond noir */
+      color: #fff; /* couleur initiale */
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
       text-align: center;
-      transition: 0.2s;
-    }
-
-    a:hover {
-      background: white;
-      transform: translateY(-2px);
+      transition: color 0.5s;
     }
 
     .credits {
@@ -56,6 +49,7 @@
       bottom: 10px;
       right: 10px;
       font-size: 12px;
+      color: white;
       opacity: 0.8;
     }
   </style>
@@ -75,6 +69,23 @@
   <div class="credits">
     © camillefrigerio
   </div>
+
+  <script>
+    // Fonction pour générer une couleur hex aléatoire
+    function couleurAleatoire() {
+      return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+    }
+
+    // Sélectionne tous les liens
+    const liens = document.querySelectorAll('a');
+
+    // Change la couleur de chaque lien toutes les 2 secondes
+    setInterval(() => {
+      liens.forEach(lien => {
+        lien.style.color = couleurAleatoire();
+      });
+    }, 2000);
+  </script>
 
 </body>
 </html>
